@@ -40,7 +40,7 @@ from prompt_builder import (
     get_text_prompt,
     ROLE_DESCRIPTION,
     WORKFLOW_DESCRIPTION,
-    get_ui_description,
+    UI_DESCRIPTION,
 )
 from tools import get_contact_info
 from a2ui.core.schema.constants import VERSION_0_8, A2UI_OPEN_TAG, A2UI_CLOSE_TAG
@@ -128,7 +128,7 @@ class ContactAgent:
         self.schema_manager.generate_system_prompt(
             role_description=ROLE_DESCRIPTION,
             workflow_description=WORKFLOW_DESCRIPTION,
-            ui_description=get_ui_description(),
+            ui_description=UI_DESCRIPTION,
             include_examples=True,
             include_schema=True,
             validate_examples=False,  # Missing inline_catalogs for OrgChart and WebFrame validation

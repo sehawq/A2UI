@@ -37,6 +37,7 @@ FLOOR_PLAN_FILE = "floor_plan.json"
 def load_floor_plan_example(html_content: str = "") -> list[dict]:
   """Constructs the JSON for the location surface displaying the floor plan."""
   import os
+  title_suffix = "(MCP Apps)" if os.environ.get("USE_MCP_SANDBOX", "true").lower() == "true" else "(iFrame)"
   return [
       {
           "beginRendering": {
@@ -71,7 +72,7 @@ def load_floor_plan_example(html_content: str = "") -> list[dict]:
                       "component": {
                           "Text": {
                               "usageHint": "h2",
-                              "text": {"literalString": "Office Floor Plan"},
+                              "text": {"literalString": f"Office Floor Plan {title_suffix}"},
                           }
                       },
                   },
